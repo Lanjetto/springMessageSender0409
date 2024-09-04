@@ -1,18 +1,18 @@
 package com.nexign.springMessageSender.model;
 
-import com.nexign.springMessageSender.annotations.Inject;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Message implements IMessage{
 
-    @Inject
     private Title title;
 
-//    public Message(Title title) {
-//        this.title = title;
-//    }
+    public Message(Title title) {
+        this.title = title;
+    }
 
     @Override
     public String toString() {
-        return "Message{}";
+        return title.getText();
     }
 }
