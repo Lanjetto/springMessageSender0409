@@ -7,6 +7,9 @@ import com.nexign.springMessageSender.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Component
 public class MessageSender {
 
@@ -41,6 +44,11 @@ public class MessageSender {
     public void sendMessage() {
         System.out.println(message + " отправлено в " + destination);
         messageDAO.send(message.toString());
+    }
+
+    public void sendMessage(List<Message> m) {
+        m.stream().peek(System.out::println)
+                .forEach(message1 -> messageDAO.send(message1.toString()));
     }
 
     @Override

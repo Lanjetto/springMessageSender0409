@@ -2,11 +2,13 @@ package com.nexign.springMessageSender.model;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @Component
+@Scope("prototype")
 public class Title {
 
     @Value("${strings}")
